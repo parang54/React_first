@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class PhoneForm extends Component {
+
     state = {
         name: '',
         phone: '',
@@ -16,6 +17,10 @@ class PhoneForm extends Component {
     handelSubmit =(e) => {
         e.preventDefault();
         this.props.onCreate(this.state);
+        this.setState({
+            name: '',
+            phone: ''
+        })
 
     }
 
@@ -35,9 +40,6 @@ class PhoneForm extends Component {
                 value={this.state.phone} 
               />
               <button type="submit">등록</button>
-              <div>
-                {this.state.name}  {this.state.phone}
-              </div>
             </form>
         );
     }
